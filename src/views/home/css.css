@@ -1,0 +1,35 @@
+.sticky-list .sticky-container .am-list-item { padding-left: 0; }
+.sticky-list .sticky-container .am-list-line { padding-right: 0; }
+.sticky-list .sticky-container .am-list-line .am-list-content { padding-top: 0; padding-bottom: 0; }
+.sticky-list .sticky-container .sticky { padding: 7px 15px; transform: none; }
+
+.list-item {
+        padding: 0px 15px;
+}
+
+.item-box {
+        display: flex;
+        padding: 15px 0px;
+}
+
+.item-img {
+        width: 64px;
+        height: 64px;
+        margin-right: 15px;
+        border: 1px solid rgb(225, 225, 225);
+        overflow: hidden;
+}
+
+.item-desc {
+        line-height: 1;
+}
+
+.item-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: bold;
+}
+
+.item-sec {
+        margin-bottom: 5px;
+}

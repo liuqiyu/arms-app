@@ -12,6 +12,11 @@ class Menus extends React.Component {
       show: false,
     };
   }
+  
+  /**
+   * 选项改变
+   * @param value
+   */
   onChange = (value) => {
     let label = '';
     this.props.gunfire.forEach((dataItem) => {
@@ -28,6 +33,11 @@ class Menus extends React.Component {
     });
     console.log(label);
   }
+  
+  /**
+   * 点击分类
+   * @param e
+   */
   handleClick = (e) => {
     e.preventDefault(); // Fix event propagation on Android
     this.setState({
@@ -43,6 +53,9 @@ class Menus extends React.Component {
     }
   }
   
+  /**
+   * 关闭导航
+   */
   onMaskClick = () => {
     this.setState({
       show: false,
@@ -55,7 +68,7 @@ class Menus extends React.Component {
       <Menu
         className="foo-menu"
         data={initData}
-        value={['1', '3']}
+        value={[1, 3]}
         onChange={this.onChange}
         height={document.documentElement.clientHeight * 0.6}
       />

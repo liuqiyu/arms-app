@@ -1,19 +1,22 @@
 import React from 'react';
 import { Carousel } from 'antd-mobile';
 
-
 class Carousels extends React.Component {
-    state = {
-        data: ['1', '2', '3'],
-        imgHeight: 176,
-    }
+    constructor (props) {
+        super(props);
+        this.state = {
+            data: ['1', '2', '3'],
+            imgHeight: 176,
+        };
+    };
     componentDidMount() {
         // simulate img loading
         setTimeout(() => {
+            console.log(this.props.bannerData);
             this.setState({
                 data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
             });
-        }, 100);
+        }, 1000);
     }
     render() {
         return (
@@ -23,14 +26,14 @@ class Carousels extends React.Component {
         beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
         afterChange={index => console.log('slide to', index)}
     >
-        {this.state.data.map(val => (
+        {this.props.bannerData.map(val => (
             <a
                 key={val}
             href="http://www.alipay.com"
             style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
         >
             <img
-                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                src={val.url}
             alt=""
             style={{ width: '100%', verticalAlign: 'top' }}
             onLoad={() => {

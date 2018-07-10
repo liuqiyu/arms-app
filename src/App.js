@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Switch  } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Loadable from 'react-loadable';
+import home from './api/home'
+import { getArms } from './store/actions/gunfire-actions'
 
 const loadingComponent = ({ isLoading, error }) => {
   // Handle the loading state
@@ -27,6 +30,16 @@ const Cart = Loadable({
 });
 
 class App extends Component {
+  componentDidMount() {
+    // 获取导航列表
+    home.getNavList().then(res => {
+      if (res.data.code === 200) {
+        const data = res.data.data;
+        this.props.getArms(data);
+      }
+    });
+  }
+  
   render() {
     return (
       <Router>
@@ -43,4 +56,10 @@ class App extends Component {
   }
 }
 
-export default App;
+// export default App;
+
+export default connect(state => ({
+  gunfire: state.gunfireReducer.gunfire,
+}), {
+  getArms,
+})(App);
